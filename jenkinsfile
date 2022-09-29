@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage(vcs) {
+            steps {
+             git url: 'https://github.com/nagarjunaduggireddy/openmrs-core.git', branch: 'master'
+            }
+        stage(build) {
+            steps {
+                sh "package"
+            }
+        }
+        }
+    }
+}
