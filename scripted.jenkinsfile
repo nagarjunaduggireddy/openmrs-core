@@ -4,5 +4,6 @@ stage('vcs') {
 }
 stage('build') {
     sh 'mvn package'
+    sh 'mvn install'
 }
 }
