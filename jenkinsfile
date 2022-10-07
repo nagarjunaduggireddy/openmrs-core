@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'node1'
+        label 'MVN3'
         }
     stages {
         stage('vcs') {
