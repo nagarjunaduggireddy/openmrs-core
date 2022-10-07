@@ -1,10 +1,12 @@
 pipeline {
-    agent {label 'MVN3'}
+    agent {
+        label 'MVN3'
+        }
     stages {
         stage('vcs') {
             steps {
-             git url: "https://github.com/nagarjunaduggireddy/openmrs-core.git", 
-             branch: "SPRINT-1-DEV"
+             git url: 'https://github.com/nagarjunaduggireddy/openmrs-core.git', 
+             branch: 'SPRINT-1-DEV'
             }
         }
         stage('build') {
