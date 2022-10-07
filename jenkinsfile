@@ -1,8 +1,6 @@
 pipeline {
-    agent { node { label 'node1' } }
-    triggers { pollSCM('* * * * *') }
-
-    stages {
+    agent { labe1 'node1' }
+        stages {
         stage('vcs') {
             steps {
              git url: 'https://github.com/nagarjunaduggireddy/openmrs-core.git', 
