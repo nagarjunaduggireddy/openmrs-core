@@ -1,5 +1,5 @@
 pipeline {
-    agent { labe1 'node1' }
+    agent { labe1 'MVN3' }
         stages {
         stage('vcs') {
             steps {
