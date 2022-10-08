@@ -2,16 +2,36 @@ pipeline {
     agent { 
 	node { label 'MVN3' }
         }
+	parameters {
+        string(name: 'MAVEN_GOAL', defaultValue: 'clean install', description: 'maven goal')
+		}
     stages {
         stage('vcs') {
             steps {
              git url: 'https://github.com/nagarjunaduggireddy/openmrs-core.git', 
              branch: 'master'
             }
-        }
-        stage('build') {
+			}
+	stage ('Artifactory configuration') {
             steps {
-                sh "mvn package"
+                
+           rtMavenDeployer (
+           id: "MAVEN_DEPLOYER",
+           serverId: "ARJUN_JFROG",
+           releaseRepo: 'default-libs-release-local',
+           snapshotRepo: 'default-libs-snapshot-local'
+                )
+
+            }
+        }
+stage ('Exec Maven') {
+            steps {
+                rtMavenRun (
+                    tool: 'MVN_DEFAULT', 
+                    pom: 'pom.xml',
+                    goals: 'clean install',
+                    deployerId: "MAVEN_DEPLOYER"
+                )
             }
         }
     }
