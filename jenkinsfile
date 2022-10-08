@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent { node { label 'MVN3' } }
+	cron { cron('H 18 * * 1-5') }
     stages {
         stage('vcs') {
             steps {
