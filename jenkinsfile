@@ -1,5 +1,5 @@
 pipeline {
-    agent { labe1 'MVN3' }
+    agent { node { label 'MVN3' } }
 	triggers { pollSCM('* * * * *') }
         stages {
         stage('vcs') {
