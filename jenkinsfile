@@ -17,7 +17,7 @@ pipeline {
                 
            rtMavenDeployer (
            id: "MAVEN_DEPLOYER",
-           serverId: "ARJUN_JFROG",
+           serverId: "openmrs-jfrog",
            releaseRepo: 'default-libs-release-local',
            snapshotRepo: 'default-libs-snapshot-local'
                 )
