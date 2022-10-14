@@ -26,7 +26,7 @@ stage ('Exec Maven') {
                 rtMavenRun (
                     tool: 'MVN_DEFAULT', 
                     pom: 'pom.xml',
-                    goals: 'package',
+                    goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER"
                 )
             }
