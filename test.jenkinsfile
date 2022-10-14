@@ -12,7 +12,7 @@ pipeline {
         stage('build') {
             steps{
              artifactoryMavenBuild pom : pom.xml,
-                                   goals : package
+                                   goals : clean package
             }
         }
         stage('test') {
