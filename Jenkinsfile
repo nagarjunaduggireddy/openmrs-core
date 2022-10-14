@@ -31,5 +31,12 @@ stage ('Exec Maven') {
                 )
             }
         }
+			stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "JFROG_OCT22"
+                )
+            }
+        }
     }
 }
