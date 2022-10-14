@@ -2,10 +2,7 @@ pipeline {
     agent { 
 	node { label 'MVN3' }
         }
-	parameters {
-        string(name: 'MAVEN_GOAL', defaultValue: 'clean install', description: 'maven goal')
-		}
-    stages {
+	    stages {
         stage('vcs') {
             steps {
              git url: 'https://github.com/nagarjunaduggireddy/openmrs-core.git', 
@@ -29,7 +26,7 @@ stage ('Exec Maven') {
                 rtMavenRun (
                     tool: 'MVN_DEFAULT', 
                     pom: 'pom.xml',
-                    goals: 'clean install',
+                    goals: 'package',
                     deployerId: "MAVEN_DEPLOYER"
                 )
             }
